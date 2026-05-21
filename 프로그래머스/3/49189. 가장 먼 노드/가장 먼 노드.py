@@ -1,26 +1,24 @@
-def solution(n, vertex):
-    INF = float('inf')
+from collections import deque
 
-    dist = [INF] * (n + 1)
+def solution(n, vertex):
+    graph = [[] for _ in range(n + 1)]
+
+    for a, b in vertex:
+        graph[a].append(b)
+        graph[b].append(a)
+
+    dist = [-1] * (n + 1)
     dist[1] = 0
 
-    # Bellman-Ford
-    for _ in range(n - 1):
-        updated = False
+    q = deque([1])
 
-        for a, b in vertex:
-            # a -> b
-            if dist[a] != INF and dist[b] > dist[a] + 1:
-                dist[b] = dist[a] + 1
-                updated = True
+    while q:
+        now = q.popleft()
 
-            # b -> a (양방향)
-            if dist[b] != INF and dist[a] > dist[b] + 1:
-                dist[a] = dist[b] + 1
-                updated = True
+        for nxt in graph[now]:
+            if dist[nxt] == -1:
+                dist[nxt] = dist[now] + 1
+                q.append(nxt)
 
-        if not updated:
-            break
-
-    max_dist = max(dist[1:])
+    max_dist = max(dist)
     return dist.count(max_dist)
