@@ -1,10 +1,10 @@
 # [level 3] 가장 먼 노드 - 49189 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/49189) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/49189?utm_source=chatgpt.com) 
 
 ### 성능 요약
 
-메모리: 19.2 MB, 시간: 15.81 ms
+메모리: 17 MB, 시간: 9150.39 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 05월 21일 08:35:14
+2026년 05월 21일 19:47:44
 
 ### 문제 설명
 
