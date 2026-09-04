@@ -1,0 +1,21 @@
+T = input()
+for tc in range(int(T)):
+    K, N, _ = map(int, input().split())
+    station = list(map(int, input().split()))
+    station.append(N)
+    pointer = 0
+    counter = 0
+    while not pointer==N:
+        find_station = False
+        for i in range(K, 0, -1):
+            if pointer+i in station:
+                pointer += i
+                counter += 1
+                find_station = True
+                break
+        if not find_station:
+            counter = 0
+            break
+    if pointer==N:
+        counter -= 1
+    print(f"#{tc+1} {counter}")
